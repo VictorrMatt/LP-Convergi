@@ -4,18 +4,14 @@ import { Features } from "@/components/sections/Features";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Footer } from "@/components/sections/Footer";
+import Convergi from "@/components/icons";
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-[#08102F]">
-      <header className="absolute z-10 w-full flex items-center justify-between px-28 py-6 max-md:px-5">
+      <header className="absolute z-10 w-full h-24 flex items-center justify-between px-28 py-6 max-md:px-5">
         <div className="flex items-center gap-[9px]">
-          <img
-            src="/lovable-uploads/eb92c032-7f30-4022-a36c-f8dcfcec73c7.png"
-            alt="Logo Icon"
-            className="w-10 h-10"
-          />
-          <span className="text-white font-semibold text-xl">Convergi</span>
+          <Convergi/>
         </div>
         <div className="flex items-center gap-4 text-base font-bold">
           <a

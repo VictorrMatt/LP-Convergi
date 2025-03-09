@@ -1,7 +1,7 @@
 
 export const Portfolio = () => {
   return (
-    <div className="bg-[#19204B] flex w-full flex-col items-center px-28 py-24 max-md:px-5 max-md:py-16">
+    <div className="bg-[#19204B] flex w-full flex-col items-center px-28 py-24 max-md:px-5 max-md:py-16" style={{ border: '1px solid red' }}>
       <div className="w-full max-w-[1200px]">
         <div className="flex flex-col mb-12 max-md:mb-8">
           <div className="text-[#B2B3C7] text-base font-normal">

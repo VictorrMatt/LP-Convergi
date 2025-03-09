@@ -1,9 +1,9 @@
 
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
   return (
-    <div className="relative z-0 flex w-full flex-col justify-center px-28 py-[360px] max-md:max-w-full max-md:px-5 max-md:py-[100px]">
+    <div className="relative z-0 flex w-full flex-col justify-center px-28 py-[360px] max-md:max-w-full max-md:px-5 max-md:py-[100px]" style={{ border: '1px solid red' }}>
       <div className="self-center z-0 flex w-[1007px] max-w-full flex-col items-stretch justify-center">
         <div className="flex w-full flex-col text-center max-md:max-w-full">
           <h1 className="text-white text-8xl font-semibold leading-[104px] max-md:max-w-full max-md:text-[40px] max-md:leading-[48px]">
