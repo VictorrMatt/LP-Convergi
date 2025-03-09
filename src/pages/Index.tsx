@@ -31,7 +31,7 @@ const Index = () => {
 
   return (
     <main className="min-h-screen relative justify-center bg-[#08102F]">
-      <div className="w-full max-w-[1440px] mx-auto">
+      <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center">
         <Header/>
 
         <HeroSection />
