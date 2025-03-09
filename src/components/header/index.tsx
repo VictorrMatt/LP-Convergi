@@ -3,17 +3,17 @@ import { Button } from "../ui/button"
 
 const Header = () => (
   <header className="fixed top-0 left-0 z-10 w-full h-[72px] flex items-center justify-center px-28 py-[10px] max-md:px-5 transition-colors duration-200 bg-transparent" id="header">
-    <div className="flex w-[1440px] items-center justify-between gap-[9px]">
-      <Convergi />
-      <div className="flex items-center justify-center gap-4 text-base font-bold">
-        <Button variant="outline">
-        hello@convergi.studio
-        </Button>
+    <div className="flex w-[1440px] items-center justify-between">
+        <Convergi />
+        <div className="flex items-center justify-center gap-2">
+          <Button variant="outline">
+          hello@convergi.studio
+          </Button>
 
-        <Button>
-          Free Consultation
-        </Button>
-      </div>
+          <Button>
+            Free Consultation
+          </Button>
+        </div>
     </div>
   </header>
 )
