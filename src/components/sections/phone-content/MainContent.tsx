@@ -13,7 +13,7 @@ export const MainContent: React.FC = () => {
             design, and strategy.
           </p>
         </div>
-        <button className="gap-2.5 self-start px-6 py-3 mt-10 text-base font-bold text-white rounded-[200px] max-md:px-5">
+        <button className="gap-2.5 self-start px-6 py-3 mt-10 text-base font-bold text-white rounded-[200px] max-md:px-5 bg-gradient-to-r from-[#3078FF] to-[#7601AB]">
           Free Consultation
         </button>
       </div>

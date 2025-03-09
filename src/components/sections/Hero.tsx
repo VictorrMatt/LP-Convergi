@@ -7,7 +7,7 @@ export const Hero = () => {
       <div className="self-center z-0 flex w-[1007px] max-w-full flex-col items-stretch justify-center">
         <div className="flex w-full flex-col text-center max-md:max-w-full">
           <h1 className="text-white text-8xl font-semibold leading-[104px] max-md:max-w-full max-md:text-[40px] max-md:leading-[48px]">
-            Innovation, Design,
+            Innovation, Desig
             <br />
             & Strategy
           </h1>
@@ -18,7 +18,7 @@ export const Hero = () => {
             seamless interactions.
           </p>
         </div>
-        <Button variant="outline" className="self-center mt-10">
+        <Button>
           Free Consultation
         </Button>
       </div>

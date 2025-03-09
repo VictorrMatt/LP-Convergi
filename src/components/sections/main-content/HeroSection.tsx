@@ -38,7 +38,7 @@ export const HeroSection = () => {
           </p>
         </header>
         <button
-          className="text-white text-base font-bold leading-6 cursor-pointer px-6 py-3 rounded-[200px] bg-blue-600 hover:bg-blue-700 transition-colors debug-border"
+          className="text-white text-base font-bold leading-6 cursor-pointer px-6 py-3 rounded-[200px] bg-blue-600 hover:bg-blue-700 transition-colors debug-border bg-gradient-to-r from-[#3078FF] to-[#7601AB]"
           aria-label="Request Free Consultation"
         >
           Free Consultation
