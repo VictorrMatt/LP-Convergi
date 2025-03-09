@@ -1,4 +1,4 @@
-<lov-codelov-code>
+
 import Button from "@/components/ui/Button";
 
 export const Hero = () => {
@@ -8,7 +8,8 @@ export const Hero = () => {
         <div className="flex w-full flex-col text-center max-md:max-w-full">
           <h1 className="text-white text-8xl font-semibold leading-[104px] max-md:max-w-full max-md:text-[40px] max-md:leading-[48px]">
             Innovation, Design,
-            <br />& Strategy
+            <br />
+            & Strategy
           </h1>
           <p className="text-[#BFBFBF] text-base font-normal leading-5 mt-6 max-md:max-w-full">
             Elevating Digital Experiences Beyond Expectations.
@@ -24,4 +25,3 @@ export const Hero = () => {
     </div>
   );
 };
-</lov-code>
