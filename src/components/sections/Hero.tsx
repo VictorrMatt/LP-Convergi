@@ -1,10 +1,11 @@
+
 import Button from "@/components/ui/Button";
 
 export const Hero = () => {
   return (
-    <div className="relative z-0 flex w-full flex-col justify-center px-28 py-[360px] max-md:max-w-full max-md:px-5 max-md:py-[100px]">
-      <div className="self-center z-0 flex w-[1007px] max-w-full flex-col items-stretch justify-center">
-        <div className="flex w-full flex-col text-center max-md:max-w-full">
+    <div className="relative flex w-full flex-col justify-center items-center bg-[#08102F] px-28 py-56 max-md:max-w-full max-md:px-5 max-md:py-36">
+      <div className="self-center flex w-full max-w-[920px] flex-col items-center justify-center">
+        <div className="flex w-full flex-col text-center">
           <h1 className="text-white text-8xl font-semibold leading-[104px] max-md:max-w-full max-md:text-[40px] max-md:leading-[48px]">
             Innovation, Design,
             <br />& Strategy

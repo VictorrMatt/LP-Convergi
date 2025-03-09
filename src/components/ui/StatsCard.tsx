@@ -1,3 +1,4 @@
+
 interface StatsCardProps {
   icon?: React.ReactNode;
   value: string;
@@ -13,20 +14,18 @@ export const StatsCard: React.FC<StatsCardProps> = ({
 }) => {
   return (
     <div
-      className={`bg-[rgba(19,24,57,1)] flex gap-2.5 grow shrink p-5 rounded-[7px] ${className}`}
+      className={`bg-[#131839] flex flex-col p-8 rounded-[8px] h-full ${className}`}
     >
       {icon && (
-        <div className="w-[39px] rounded-[0px_0px_0px_0px]">
-          <div className="bg-[rgba(23,29,69,1)] flex w-[39px] shrink-0 h-[39px] rounded-[26px]">
+        <div className="mb-4">
+          <div className="bg-[#171D45] flex w-10 h-10 items-center justify-center rounded-full">
             {icon}
           </div>
         </div>
       )}
-      <div className="flex gap-[40px_75px] text-[rgba(65,71,124,1)] flex-1 shrink basis-[0%]">
-        <div className="w-full flex-1 shrink basis-[0%]">
-          <div className="text-xl font-bold leading-none">{value}</div>
-          <div className="text-xs font-normal leading-loose">{label}</div>
-        </div>
+      <div className="text-white">
+        <div className="text-2xl font-bold mb-2">{value}</div>
+        <div className="text-[#B2B3C7] text-sm font-normal">{label}</div>
       </div>
     </div>
   );
