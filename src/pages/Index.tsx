@@ -10,6 +10,7 @@ import FeaturesBanner from "@/components/banner";
 import MaizenaSection from "@/components/sections/maizena-content";
 import BeforeAfterSlider from "@/components/sections/before-content/BeforeAndAfter";
 import { SliderSection } from "@/components/sections/Slider";
+import LinesSection from "@/components/sections/Lines";
 
 const Index = () => {
   useEffect(() => {
@@ -40,6 +41,7 @@ const Index = () => {
         <MaizenaSection/>
         <SolutionsSection />
         <SliderSection/>
+        <LinesSection/>
         <Portfolio />
         <Testimonials />
         <Footer />
