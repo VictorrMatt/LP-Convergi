@@ -9,6 +9,7 @@ import Maizena from "@/components/effects/maizena";
 import { HeroSection } from "@/components/sections/main-content/HeroSection";
 import Header from "@/components/header";
 import FeaturesBanner from "@/components/banner";
+import MaizenaSection from "@/components/sections/maizena-content";
 
 const Index = () => {
   useEffect(() => {
@@ -36,8 +37,7 @@ const Index = () => {
         <HeroSection />
         <PhoneSection />
         <FeaturesBanner/>
-<Maizena/>
-
+        <MaizenaSection/>
         <Features />
         <Portfolio />
         <Testimonials />
