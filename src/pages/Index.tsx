@@ -1,7 +1,7 @@
 import { SolutionsSection } from "@/components/sections/Solutions";
 import { Portfolio } from "@/components/sections/Portfolio";
 import Testimonials from "@/components/sections/Testimonials";
-import { Footer } from "@/components/sections/Footer";
+import Footer from "@/components/sections/Footer";
 import PhoneSection from "@/components/sections/phone-content/PhoneSection";
 import { useEffect } from 'react';
 import { HeroSection } from "@/components/sections/main-content/HeroSection";
