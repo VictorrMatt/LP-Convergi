@@ -3,7 +3,7 @@ import { StatsCard } from "@/components/ui/StatsCard";
 
 export const Solutions = () => {
   return (
-    <div className="bg-[#19204B] flex w-full flex-col items-center justify-center px-28 py-24 max-md:px-5 max-md:py-16" style={{ border: '1px solid red' }}>
+    <div className="bg-[#19204B] flex w-full flex-col items-center justify-center px-28 py-24 max-md:px-5 max-md:py-16">
       <div className="w-full max-w-[1200px]">
         <h2 className="text-white text-[64px] font-semibold text-center leading-none mb-16 max-md:text-[40px] max-md:mb-10">
           Our Solutions
