@@ -1,16 +1,15 @@
-import { Hero } from "@/components/sections/Hero";
-import { Solutions } from "@/components/sections/Solutions";
+import { SolutionsSection } from "@/components/sections/Solutions";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Footer } from "@/components/sections/Footer";
 import PhoneSection from "@/components/sections/phone-content/PhoneSection";
 import { useEffect } from 'react';
-import Maizena from "@/components/effects/maizena";
 import { HeroSection } from "@/components/sections/main-content/HeroSection";
 import Header from "@/components/header";
 import FeaturesBanner from "@/components/banner";
 import MaizenaSection from "@/components/sections/maizena-content";
-import { BeforeAndAfter } from "@/components/sections/BeforeAndAfter";
+import BeforeAfterSlider from "@/components/sections/before-content/BeforeAndAfter";
+import { SliderSection } from "@/components/sections/Slider";
 
 const Index = () => {
   useEffect(() => {
@@ -39,8 +38,8 @@ const Index = () => {
         <PhoneSection />
         <FeaturesBanner/>
         <MaizenaSection/>
-        <Solutions />
-        <BeforeAndAfter />
+        <SolutionsSection />
+        <SliderSection/>
         <Portfolio />
         <Testimonials />
         <Footer />
