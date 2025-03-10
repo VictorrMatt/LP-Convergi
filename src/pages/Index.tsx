@@ -1,5 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
-import { Features } from "@/components/sections/Features";
+import { Solutions } from "@/components/sections/Solutions";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Footer } from "@/components/sections/Footer";
@@ -10,6 +10,7 @@ import { HeroSection } from "@/components/sections/main-content/HeroSection";
 import Header from "@/components/header";
 import FeaturesBanner from "@/components/banner";
 import MaizenaSection from "@/components/sections/maizena-content";
+import { BeforeAndAfter } from "@/components/sections/BeforeAndAfter";
 
 const Index = () => {
   useEffect(() => {
@@ -38,7 +39,8 @@ const Index = () => {
         <PhoneSection />
         <FeaturesBanner/>
         <MaizenaSection/>
-        <Features />
+        <Solutions />
+        <BeforeAndAfter />
         <Portfolio />
         <Testimonials />
         <Footer />
