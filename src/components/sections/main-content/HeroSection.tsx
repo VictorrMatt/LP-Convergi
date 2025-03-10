@@ -22,7 +22,7 @@ const serviceCircles = [
 
 export const HeroSection = () => {
   return (
-    <main className="w-[1312px] h-[1080px] pt-[360px] flex flex-col relative items-center debug-border">
+    <main className="w-[1312px] h-[1080px] pt-[360px] gap-[60px] pb-[60px] flex flex-col relative items-center debug-border">
       <section className="max-w-[1007px] w-full flex flex-col items-center gap-10 debug-border">
         <header className="flex flex-col items-center gap-6 w-full debug-border">
           <h1 className="text-white text-center text-8xl font-semibold leading-[104px] max-md:text-7xl max-md:leading-[80px] max-sm:text-5xl max-sm:leading-[56px] debug-border">
@@ -45,7 +45,7 @@ export const HeroSection = () => {
         </button>
       </section>
        <ScrollIndicator className="debug-border" />
-       <div className="flex justify-center items-center gap-10 absolute w-[800px] mx-auto my-0 bottom-0 max-md:w-full max-md:flex-wrap max-md:relative max-md:mt-10 max-sm:gap-5 debug-border">
+       <div className="flex justify-center items-center gap-10 w-[800px] mx-auto my-0 bottom-0 max-md:w-full max-md:flex-wrap max-md:relative max-md:mt-10 max-sm:gap-5 debug-border">
         {serviceCircles.map((circle, index) => (
           <ServiceCircle
             key={index}
