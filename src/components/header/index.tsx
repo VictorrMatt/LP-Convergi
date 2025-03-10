@@ -1,4 +1,4 @@
-import Convergi from "../icons"
+import { Convergi } from "../icons"
 import { Button } from "../ui/button"
 
 const Header = () => (

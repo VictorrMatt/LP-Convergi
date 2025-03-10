@@ -3,12 +3,12 @@ import { Features } from "@/components/sections/Features";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Footer } from "@/components/sections/Footer";
-import Convergi from "@/components/icons";
 import PhoneSection from "@/components/sections/phone-content/PhoneSection";
 import { useEffect } from 'react';
 import Maizena from "@/components/effects/maizena";
 import { HeroSection } from "@/components/sections/main-content/HeroSection";
 import Header from "@/components/header";
+import FeaturesBanner from "@/components/banner";
 
 const Index = () => {
   useEffect(() => {
@@ -35,18 +35,7 @@ const Index = () => {
       <div className="debug-border w-full max-w-[1440px] mx-auto flex flex-col items-center">
         <HeroSection />
         <PhoneSection />
-
-        <section className="bg-[#19204B] flex flex-wrap justify-center items-center gap-8 py-6 px-8 text-[#B2B3C7] font-medium">
-          <span>Intelligent Interfaces</span>
-          <span>Adaptive UX</span>
-          <span>AI-Driven Design</span>
-          <span>Human-Centric</span>
-          <span>Smart Automations</span>
-          <span>Intuitive Journeys</span>
-          <span>Visual Simplicity</span>
-          <span>Seamless Interactions</span>
-        </section>
-
+        <FeaturesBanner/>
 <Maizena/>
 
         <Features />
