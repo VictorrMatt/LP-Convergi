@@ -26,7 +26,7 @@ export const HeroSection = () => {
       <section className="max-w-[1007px] w-full flex flex-col items-center gap-10 debug-border">
         <header className="flex flex-col items-center gap-6 w-full debug-border">
           <h1 className="text-white text-center text-8xl font-semibold leading-[104px] max-md:text-7xl max-md:leading-[80px] max-sm:text-5xl max-sm:leading-[56px] debug-border">
-            Innovation, Design, & Strategy
+            Innovation, Design,<br/> & Strategy
           </h1>
           <p className="text-[#BFBFBF] font-inter text-center text-base font-normal leading-5 max-sm:text-sm debug-border">
             <span>Elevating Digital Experiences Beyond Expectations.</span>

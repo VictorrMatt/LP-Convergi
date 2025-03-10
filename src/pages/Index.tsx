@@ -32,7 +32,7 @@ const Index = () => {
   return (
     <main className="min-h-screen relative justify-center bg-[#08102F]">
         <Header/>
-      <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center">
+      <div className="debug-border w-full max-w-[1440px] mx-auto flex flex-col items-center">
         <HeroSection />
         <PhoneSection />
 
