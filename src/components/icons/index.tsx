@@ -95,13 +95,14 @@ const PurpleShine = () => (
   </svg>
 );
 
-const ConvergiBadge = () => (
+const ConvergiBadge = (className: any) => (
   <svg
     width="188"
     height="188"
     viewBox="0 0 188 188"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className={className}
   >
     <rect width="188" height="188" rx="94" fill="#171D45" />
     <path d="M94.006 15.7666V24.3164H92.9706V15.7666H94.006Z" fill="#9CA8DD" />

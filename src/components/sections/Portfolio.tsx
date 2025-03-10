@@ -1,4 +1,4 @@
-import { ConvergiBadge } from "../icons";
+import { ConvergiBadge }from "../icons";
 
 export const Portfolio = () => {
   return (
@@ -14,7 +14,7 @@ export const Portfolio = () => {
           </h2>
           </div>
 
-          <ConvergiBadge/>
+          <ConvergiBadge className="rotate debug-border"/>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full text-center">
           <div className="bg-[#2C3158] py-4 px-6 border-b-2 border-[#727EC5]">
