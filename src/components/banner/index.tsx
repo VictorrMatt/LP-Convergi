@@ -20,8 +20,8 @@ const styles = `
 .slide {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-right: 2rem;
+  gap: 1.5rem;
+  margin-right: 1.5rem;
   white-space: nowrap;
   color: #B2B3C7;
   font-weight: 500;
