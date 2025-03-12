@@ -11,8 +11,8 @@ export const SliderSection = () => {
         </h2>
         <div>
           <BeforeAfterSlider
-            beforeImage="/png/high-fidelity.png"
-            afterImage="/png/wireframe.png"
+            beforeImage="/png/wireframe.png"
+            afterImage="/png/high-fidelity.png"
             showSlider={false}
           />
         </div>
