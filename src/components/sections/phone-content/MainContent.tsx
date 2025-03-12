@@ -8,7 +8,7 @@ export const MainContent: React.FC = () => {
       <div className=" flex flex-col justify-center self-stretch my-auto w-96 min-w-60">
         <div className="">
           <h1 className="text-[64px] w-[453px] h-[144px]  font-semibold text-white leading-[72px] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]">
-            Your Vision, Our Expertise
+            Your Vision,<br/> Our Expertise
           </h1>
           <Body className=" mt-6 font-inter text-base leading-5 text-[#B2B3C7]">
           Transform your ideas into powerful solutions with innovation,
