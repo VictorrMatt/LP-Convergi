@@ -214,4 +214,21 @@ const ConvergiBadge = (className: any) => (
   </svg>
 );
 
-export { Convergi, PurpleShine, ConvergiBadge };
+const ArrowLeft = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 12H19" stroke="#888BA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 17L5 12" stroke="#888BA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 7L5 12" stroke="#888BA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+)
+
+const ArrowRight = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 12H5" stroke="#888BA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14 17L19 12" stroke="#888BA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14 7L19 12" stroke="#888BA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+)
+
+export { Convergi, PurpleShine, ConvergiBadge, ArrowLeft, ArrowRight };

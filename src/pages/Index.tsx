@@ -218,11 +218,11 @@ const Index = () => {
 
       <div className="debug-border w-full max-w-[1440px] mx-auto flex flex-col items-center relative z-10">
         {/* Seções onde a luz segue o mouse */}
-        <div ref={heroSectionRef}>
+        <div className="w-full" ref={heroSectionRef}>
           <HeroSection />
         </div>
 
-        <div ref={phoneSectionRef}>
+        <div className="w-full" ref={phoneSectionRef}>
           <PhoneSection />
         </div>
 
@@ -230,7 +230,7 @@ const Index = () => {
         <FeaturesBanner />
         <MaizenaSection />
 
-        <div ref={solutionsSectionRef}>
+        <div className="w-full" ref={solutionsSectionRef}>
           <SolutionsSection />
         </div>
 

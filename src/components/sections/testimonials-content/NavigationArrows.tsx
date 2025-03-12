@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { ArrowLeft, ArrowRight } from "@/components/icons";
 
 export function NavigationArrows() {
   const handlePrevClick = () => {
@@ -17,17 +18,17 @@ export function NavigationArrows() {
     >
       <button
         onClick={handlePrevClick}
-        className="flex gap-2.5 items-center p-3 w-12 h-12 border border-solid border-[color:var(--Wireframe-700,#45465F)] rounded-[200px]"
+        className="flex cursor-not-allowed gap-2.5 items-center p-3 w-12 h-12 border border-solid border-[color:var(--Wireframe-700,#45465F)] rounded-[200px]"
         aria-label="Previous testimonial"
       >
-        <div className="flex self-stretch my-auto w-6 min-h-6" />
+       <ArrowLeft/>
       </button>
       <button
         onClick={handleNextClick}
-        className="flex gap-2.5 items-center p-3 w-12 h-12 border border-solid border-[color:var(--Wireframe-700,#45465F)] rounded-[200px]"
+        className="flex cursor-not-allowed gap-2.5 items-center p-3 w-12 h-12 border border-solid border-[color:var(--Wireframe-700,#45465F)] rounded-[200px]"
         aria-label="Next testimonial"
       >
-        <div className="flex self-stretch my-auto w-6 min-h-6" />
+        <ArrowRight/>
       </button>
     </nav>
   );
