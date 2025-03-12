@@ -7,7 +7,7 @@ body {
 }
 
 .debug-border {
-  border: 1px solid transparent !important;
+  border: 0px solid transparent !important;
 }
 
 @keyframes spin {
