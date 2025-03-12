@@ -7,11 +7,11 @@ export const ServicesGrid: React.FC = () => {
   return (
     <section className="flex flex-col text-gray-400 max-w-[592px]">
       <div className="flex flex-wrap items-end w-full max-md:max-w-full">
-        <div className="flex flex-col grow shrink justify-center min-w-60 w-[237px]">
+        <div className="flex flex-col grow shrink justify-center min-w-60 w-[296px]">
           <ServiceCard
             title="UI & UX Design"
             description="Captivating and seamless user experiences."
-            className="bg-blue-950"
+            className="bg-[#242A52]"
           />
           <ServiceCard
             title="App & Web Development"
@@ -21,7 +21,7 @@ export const ServicesGrid: React.FC = () => {
         <ServiceCard
           title="AI Automation"
           description="Smart AI-powered agents for sales and support"
-          className="flex grow shrink bg-blue-950 min-w-60 w-[237px]"
+          className="flex grow shrink bg-[#242A52]"
         />
       </div>
       <div className="self-end">
