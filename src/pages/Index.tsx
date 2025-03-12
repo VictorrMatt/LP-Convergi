@@ -17,23 +17,92 @@ import LinesSection from "@/components/sections/Lines"
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null)
+  const heroSectionRef = useRef<HTMLDivElement>(null)
+  const phoneSectionRef = useRef<HTMLDivElement>(null)
+  const solutionsSectionRef = useRef<HTMLDivElement>(null)
+
   const [isVisible, setIsVisible] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [lastMousePosition, setLastMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
+  const [isInActiveSection, setIsInActiveSection] = useState(false)
 
-  // Initial position (center of the screen)
-  const initialPosition = { x: window?.innerWidth / 2 || 0, y: window?.innerHeight / 2 || 0 }
+  // Configurações do efeito de luz
+  const lightConfig = {
+    // Tamanho da luz (largura e altura em pixels)
+    size: 1600,
+
+    // Intensidade da luz (opacidade de 0 a 1)
+    intensity: 1,
+
+    // Cor da luz (formato rgba)
+    color: "rgba(118, 1, 171, 1)",
+
+    // Quantidade de blur (em pixels)
+    blur: 880,
+
+    // Posição inicial (em porcentagem da tela)
+    initialX: 0, // 0% = esquerda
+    initialY: 120, // 120% = abaixo da tela
+
+    // Velocidade da transição (em milissegundos)
+    transitionSpeed: 150,
+  }
+
+  // Calcula a posição inicial baseada nas porcentagens definidas
+  const calculateInitialPosition = () => {
+    if (typeof window === "undefined") return { x: 0, y: 0 }
+
+    return {
+      x: (window.innerWidth * lightConfig.initialX) / 100,
+      y: (window.innerHeight * lightConfig.initialY) / 100,
+    }
+  }
+
+  // Posição inicial calculada
+  const initialPosition = calculateInitialPosition()
+
+  // Verifica se uma coordenada está em uma das seções ativas
+  const checkIfInActiveSection = (x: number, y: number) => {
+    const heroRect = heroSectionRef.current?.getBoundingClientRect()
+    const phoneRect = phoneSectionRef.current?.getBoundingClientRect()
+    const solutionsRect = solutionsSectionRef.current?.getBoundingClientRect()
+
+    if (!heroRect || !phoneRect || !solutionsRect) return false
+
+    // Verifica se a coordenada está dentro de alguma das seções ativas
+    const isInHero = y >= heroRect.top && y <= heroRect.bottom
+    const isInPhone = y >= phoneRect.top && y <= phoneRect.bottom
+    const isInSolutions = y >= solutionsRect.top && y <= solutionsRect.bottom
+
+    return isInHero || isInPhone || isInSolutions
+  }
+
+  // Atualiza a posição da luz com base na posição atual do mouse e na seção
+  const updateLightPosition = () => {
+    const inActiveSection = checkIfInActiveSection(lastMousePosition.x, lastMousePosition.y)
+    setIsInActiveSection(inActiveSection)
+
+    if (inActiveSection) {
+      setPosition(lastMousePosition)
+    } else {
+      setPosition(calculateInitialPosition())
+    }
+  }
 
   useEffect(() => {
-    // Update initial position once the window is available
+    // Atualiza a posição inicial quando a janela estiver disponível
+    setPosition(calculateInitialPosition())
+
+    // Define a posição inicial do mouse no centro da tela
     if (typeof window !== "undefined") {
-      setPosition({
+      setLastMousePosition({
         x: window.innerWidth / 2,
         y: window.innerHeight / 2,
       })
     }
 
-    // Show the gradient after a delay
+    // Mostra o gradiente após um delay
     const timer = setTimeout(() => {
       setIsVisible(true)
     }, 750)
@@ -42,8 +111,18 @@ const Index = () => {
   }, [])
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Set the position directly to the mouse coordinates
-    setPosition({ x: e.clientX, y: e.clientY })
+    // Armazena a última posição conhecida do mouse
+    setLastMousePosition({ x: e.clientX, y: e.clientY })
+
+    // Atualiza a posição da luz
+    const inActiveSection = checkIfInActiveSection(e.clientX, e.clientY)
+    setIsInActiveSection(inActiveSection)
+
+    if (inActiveSection) {
+      setPosition({ x: e.clientX, y: e.clientY })
+    } else {
+      setPosition(calculateInitialPosition())
+    }
   }
 
   const handleMouseEnter = () => {
@@ -52,17 +131,18 @@ const Index = () => {
 
   const handleMouseLeave = () => {
     setIsHovering(false)
-    // Return to initial position (center of screen)
-    if (typeof window !== "undefined") {
-      setPosition({
-        x: window.innerWidth / 2,
-        y: window.innerHeight / 2,
-      })
-    }
+    setIsInActiveSection(false)
+    // Retorna para a posição inicial
+    setPosition(calculateInitialPosition())
   }
 
+  // Adiciona um listener de scroll para atualizar a posição da luz durante o scroll
   useEffect(() => {
     const handleScroll = () => {
+      // Atualiza a posição da luz com base na última posição conhecida do mouse
+      updateLightPosition()
+
+      // Também atualiza o header
       const header = document.getElementById("header")
       if (header) {
         if (window.scrollY > 0) {
@@ -77,7 +157,24 @@ const Index = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [])
+  }, [lastMousePosition]) // Dependência para o lastMousePosition
+
+  // Recalcula a posição inicial se a janela for redimensionada
+  useEffect(() => {
+    const handleResize = () => {
+      if (!isHovering || !isInActiveSection) {
+        setPosition(calculateInitialPosition())
+      }
+
+      // Também atualiza a posição da luz com base na última posição do mouse
+      updateLightPosition()
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [isHovering, isInActiveSection, lastMousePosition])
 
   return (
     <main
@@ -97,21 +194,21 @@ const Index = () => {
           width: "100%",
           height: "100%",
           zIndex: 0,
-          opacity: isVisible ? 0.7 : 0,
+          opacity: isVisible ? 1 : 0,
           transition: "opacity 750ms ease-out",
         }}
       >
         <div
           className="absolute"
           style={{
-            top: isHovering ? position.y : initialPosition.y,
-            left: isHovering ? position.x : initialPosition.x,
-            width: "800px",
-            height: "800px",
+            top: isHovering && isInActiveSection ? position.y : initialPosition.y,
+            left: isHovering && isInActiveSection ? position.x : initialPosition.x,
+            width: `${lightConfig.size}px`,
+            height: `${lightConfig.size}px`,
             transform: "translate(-50%, -50%)",
-            transition: "top 150ms ease-out, left 150ms ease-out",
-            background:
-              "radial-gradient(circle at center, rgba(99, 102, 241, 0.3) 0%, rgba(8, 16, 47, 0) 70%, rgba(8, 16, 47, 0) 100%)",
+            transition: `top ${lightConfig.transitionSpeed}ms ease-out, left ${lightConfig.transitionSpeed}ms ease-out`,
+            background: `radial-gradient(circle at center, ${lightConfig.color} 0%, rgba(8, 16, 47, 0) 70%, rgba(8, 16, 47, 0) 100%)`,
+            filter: `blur(${lightConfig.blur}px)`,
             willChange: "top, left",
           }}
         />
@@ -120,11 +217,23 @@ const Index = () => {
       <Header />
 
       <div className="debug-border w-full max-w-[1440px] mx-auto flex flex-col items-center relative z-10">
-        <HeroSection />
-        <PhoneSection />
+        {/* Seções onde a luz segue o mouse */}
+        <div ref={heroSectionRef}>
+          <HeroSection />
+        </div>
+
+        <div ref={phoneSectionRef}>
+          <PhoneSection />
+        </div>
+
+        {/* Seções onde a luz fica na posição inicial */}
         <FeaturesBanner />
         <MaizenaSection />
-        <SolutionsSection />
+
+        <div ref={solutionsSectionRef}>
+          <SolutionsSection />
+        </div>
+
         <SliderSection />
         <LinesSection />
         <Portfolio />
