@@ -9,15 +9,15 @@ import { VerticalContainer } from "@/components/ui/vertical-container";
 
 const MaizenaSection = () => {
   return (
-    <main className="w-full h-[1254px] bg-[url('/png/maizena-background.png')] debug-border flex relative flex-col gap-10 p-28 bg-[#19204B] max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10">
+    <main className="w-full h-[1254px] bg-[url('/png/maizena-background.png')] bg-cover bg-center bg-no-repeat flex relative flex-col gap-10 p-28 bg-[#19204B] max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10">
       <div className="absolute top-0 left-1/2 -translate-x-1/2">
         <Maizena />
       </div>
 
 
-      <div className="debug-border justify-between flex flex-col flex-1">
+      <div className=" justify-between flex flex-col flex-1">
         <VerticalContainer gap="10">
-          <Text className="debug-border h-[128px] mt-[106px]">
+          <Text className=" h-[128px] mt-[106px]">
             Seamlessly guiding your project from idea to reality.
           </Text>
           <section className="flex flex-col gap-10 items-end">

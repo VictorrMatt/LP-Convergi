@@ -216,7 +216,7 @@ const Index = () => {
 
       <Header />
 
-      <div className="debug-border w-full max-w-[1440px] mx-auto flex flex-col items-center relative z-10">
+      <div className=" w-full max-w-[1440px] mx-auto flex flex-col items-center relative z-10">
         {/* Seções onde a luz segue o mouse */}
         <div className="w-full" ref={heroSectionRef}>
           <HeroSection />
