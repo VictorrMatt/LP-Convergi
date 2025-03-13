@@ -4,8 +4,7 @@ import { PurpleShine } from "../icons";
 // Estilos CSS
 const styles = `
 .features-banner-container {
-  width: 100%;
-  max-width: 100%;
+  width: 100vw; /* Ocupa 100% da largura da tela */
   overflow-x: hidden;
   margin: 0;
   padding: 0;
@@ -16,7 +15,7 @@ const styles = `
   overflow: hidden;
   position: relative;
   width: 100%;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 0; /* Removemos o padding lateral para ocupar toda a largura */
   box-sizing: border-box;
 }
 
