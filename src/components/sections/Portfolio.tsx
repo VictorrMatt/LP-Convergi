@@ -14,9 +14,7 @@ export const Portfolio = () => {
           </h2>
           </div>
 
-          <div className="animate-spin-slow flex justify-center items-center">
-            <ConvergiBadge />
-          </div>
+          <ConvergiBadge />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 mb-16 lg:grid-cols-6 w-full text-center cursor-pointer">
           <div className="bg-[#2C3158] py-4 px-6 border-b-2 border-[#727EC5]">
