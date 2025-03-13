@@ -46,7 +46,7 @@ const Index = () => {
     initialY: 120, // 120% = abaixo da tela
 
     // Velocidade da transição (em milissegundos)
-    transitionSpeed: 150,
+    transitionSpeed: 0,
   }
 
   // Calcula a posição inicial baseada nas porcentagens definidas
