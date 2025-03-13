@@ -22,8 +22,8 @@ const serviceCircles = [
 
 export const HeroSection = () => {
   return (
-    <main className="w-[1312px] h-[1080px] pt-[360px] gap-[60px] pb-[60px] flex flex-col relative items-center ">
-      <section className="max-w-[1007px] w-full flex flex-col items-center gap-10 ">
+    <main className="w-[1312px] h-[1080px] pt-[360px] gap-[60px] pb-[60px] flex flex-col relative items-center justify-center">
+      <section className="max-w-[1007px] w-full flex flex-col items-center justify-center gap-10 ">
         <header className="flex flex-col items-center gap-6 w-full ">
           <h1 className="text-white text-center text-8xl font-semibold leading-[104px] max-md:text-7xl max-md:leading-[80px] max-sm:text-5xl max-sm:leading-[56px] ">
             Innovation, Design,<br/> & Strategy

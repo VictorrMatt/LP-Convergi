@@ -113,6 +113,6 @@ export default function EmbersBackground({
     }
   }, [emberCount, maxSize, minSize, maxSpeed, minSpeed, color])
 
-  return <canvas ref={canvasRef} className={`w-full absolute bottom-0 ${className}`} />
+  return <canvas ref={canvasRef} className={`w-screen absolute bottom-0 ${className}`} />
 }
 

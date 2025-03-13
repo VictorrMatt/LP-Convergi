@@ -3,12 +3,21 @@ import { PurpleShine } from "../icons";
 
 // Estilos CSS
 const styles = `
+.features-banner-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 .features-banner {
   background: #19204B;
   overflow: hidden;
   position: relative;
-  width: 100vw;
+  width: 100%;
   padding: 1.5rem 2rem;
+  box-sizing: border-box;
 }
 
 .slide-track {
@@ -69,17 +78,19 @@ const FeaturesBanner: React.FC = () => {
   return (
     <>
       <style>{styles}</style>
-      <section className="features-banner">
-        <div className="slide-track">
-          {/* Duplicamos os itens para criar o efeito de loop infinito */}
-          {[...navigationItems, ...navigationItems].map((item, index) => (
-            <div className="slide gap-[1.5rem]" key={`${item}-${index}`}>
-              <span>{item}</span>
-              <PurpleShine />
-            </div>
-          ))}
-        </div>
-      </section>
+      <div className="features-banner-container">
+        <section className="features-banner">
+          <div className="slide-track">
+            {/* Duplicamos os itens para criar o efeito de loop infinito */}
+            {[...navigationItems, ...navigationItems].map((item, index) => (
+              <div className="slide" key={`${item}-${index}`}>
+                <span>{item}</span>
+                <PurpleShine />
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </>
   );
 };

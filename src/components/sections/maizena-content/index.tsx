@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import Maizena from "@/components/effects/maizena";
 import Container from "./Container";
 import { VerticalContainer } from "@/components/ui/vertical-container";
-import ExtendSection from "@/components/extend/ExtendSection";
 
 const MaizenaSection = () => {
   return (
