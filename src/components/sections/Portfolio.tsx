@@ -1,17 +1,19 @@
-import { ConvergiBadge }from "../icons";
+import { ConvergiBadge } from "../icons";
 
 export const Portfolio = () => {
   return (
-    <div className="bg-[#19204B] flex w-full flex-col items-center px-28 py-24 max-md:px-5 max-md:py-16" >
+    <div className="bg-[#19204B] flex w-full flex-col items-center px-28 py-24 max-md:px-5 max-md:py-16">
       <div className="w-full max-w-[1200px]">
         <div className="flex flex-row justify-between mb-12 max-md:mb-8">
           <div>
-          <div className="text-[#B2B3C7] text-base font-normal">
-            Portfolio
-          </div>
-          <h2 className="text-white text-[64px] font-semibold leading-[72px] mt-6 max-md:text-[40px] max-md:leading-[50px]">
-            We Let Our Work<br />Do the Talking
-          </h2>
+            <div className="text-[#B2B3C7] text-base font-normal">
+              Portfolio
+            </div>
+            <h2 className="text-white text-[64px] font-semibold leading-[72px] mt-6 max-md:text-[40px] max-md:leading-[50px]">
+              We Let Our Work
+              <br />
+              Do the Talking
+            </h2>
           </div>
 
           <ConvergiBadge />
@@ -37,9 +39,21 @@ export const Portfolio = () => {
           </div>
         </div>
         <div className="flex flex-row w-full">
-          <img className="w-1/3" src="/png/project-1.png"/>
-          <img className="w-1/3" src="/png/project-2.png"/>
-          <img className="w-1/3" src="/png/project-3.png"/>
+          <a
+            className="w-1/3"
+            href="
+          "
+          >
+            <img src="/png/project-1.png" />
+          </a>
+
+          <a className="w-1/3" href="">
+            <img src="/png/project-2.png" />
+          </a>
+
+          <a className="w-1/3" href="">
+            <img src="/png/project-3.png" />
+          </a>
         </div>
       </div>
     </div>
