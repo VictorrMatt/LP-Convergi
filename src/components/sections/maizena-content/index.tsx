@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button";
 import Maizena from "@/components/effects/maizena";
 import Container from "./Container";
 import { VerticalContainer } from "@/components/ui/vertical-container";
+import ExtendSection from "@/components/extend/ExtendSection";
 
 const MaizenaSection = () => {
   return (
-    <main className="w-full h-[1254px] bg-[url('/png/maizena-background.png')] bg-cover bg-center bg-no-repeat flex relative flex-col gap-10 p-28 bg-[#19204B] max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10">
+    <div className="w-screen flex items-center justify-center bg-[#19204B]">
+    <main className="w-[1440px] h-[1254px] relative bg-[url('/png/maizena-background.png')] bg-cover bg-center bg-no-repeat flex relative flex-col gap-10 z-10 p-28 bg-[#19204B] max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10">
       <div className="absolute top-0 left-1/2 -translate-x-1/2">
         <Maizena />
       </div>
@@ -32,6 +34,7 @@ const MaizenaSection = () => {
         <ServicesGrid />
       </div>
     </main>
+    </div>
   );
 };
 

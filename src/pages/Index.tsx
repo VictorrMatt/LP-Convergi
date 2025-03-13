@@ -14,6 +14,7 @@ import FeaturesBanner from "@/components/banner"
 import MaizenaSection from "@/components/sections/maizena-content"
 import { SliderSection } from "@/components/sections/Slider"
 import LinesSection from "@/components/sections/Lines"
+import ExtendSection from "@/components/extend/ExtendSection"
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -336,7 +337,7 @@ const Index = () => {
 
         {/* Seções onde a luz fica na posição inicial */}
         <FeaturesBanner />
-        <MaizenaSection />
+          <MaizenaSection />
 
         <div className="w-full" ref={solutionsSectionRef}>
           <SolutionsSection />

@@ -7,7 +7,7 @@ const styles = `
   background: #19204B;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: 100vw;
   padding: 1.5rem 2rem;
 }
 

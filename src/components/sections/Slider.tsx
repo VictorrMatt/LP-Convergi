@@ -3,7 +3,7 @@ import BeforeAfterSlider from "./before-content/BeforeAndAfter";
 export const SliderSection = () => {
   return (
     <div
-      className="bg-[#07102F] flex w-full h-[1200px] flex-col items-center justify-center p-28 max-md:px-5 max-md:py-16"
+      className="flex w-full h-[1200px] flex-col items-center justify-center p-28 max-md:px-5 max-md:py-16"
     >
       <div className="w-full gap-16 max-w-[1216px]">
         <h2 className="text-white text-[64px] font-semibold text-center leading-none mb-16 max-md:text-[40px] max-md:mb-10">
