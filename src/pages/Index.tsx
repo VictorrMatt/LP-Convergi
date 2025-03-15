@@ -14,8 +14,16 @@ import MaizenaSection from "@/components/sections/maizena-content"
 import { SliderSection } from "@/components/sections/Slider"
 import LinesSection from "@/components/sections/Lines"
 import ContactSection from "@/components/sections/Contact"
+import { useMobile } from "@/hooks/use-mobile"
 
 const Index = () => {
+  // Aumentamos o breakpoint para 1024px para garantir que tablets também sejam considerados móveis
+  const [isMobileState, setIsMobileState] = useState(false)
+  const isMobile = useMobile(1024)
+  useEffect(() => {
+    setIsMobileState(isMobile)
+  }, [isMobile])
+
   const containerRef = useRef<HTMLDivElement>(null)
   const heroSectionRef = useRef<HTMLDivElement>(null)
   const phoneSectionRef = useRef<HTMLDivElement>(null)
@@ -54,6 +62,41 @@ const Index = () => {
     disappearSpeed: 1200, // Velocidade quando a luz desaparece (ainda mais lenta)
     followSpeed: 0, // Velocidade quando a luz segue o mouse (instantânea)
   }
+
+  // Se for dispositivo móvel, não executamos nenhuma lógica relacionada ao efeito de luz
+  if (isMobileState) {
+    // Renderiza a página sem o efeito de luz
+    return (
+      <main className="min-h-screen relative w-full overflow-hidden select-none bg-[#08102F]" ref={containerRef}>
+        <Header />
+
+        <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center justify-center relative z-10">
+          <div className="w-full flex items-center justify-center" ref={heroSectionRef}>
+            <HeroSection />
+          </div>
+
+          <div className="w-full" ref={phoneSectionRef}>
+            <PhoneSection />
+          </div>
+
+          <FeaturesBanner />
+          <MaizenaSection />
+
+          <div className="w-full" ref={solutionsSectionRef}>
+            <SolutionsSection />
+          </div>
+
+          <SliderSection />
+          <LinesSection />
+          <Portfolio />
+          <Testimonials />
+          <ContactSection />
+        </div>
+      </main>
+    )
+  }
+
+  // A partir daqui, o código só será executado em dispositivos desktop
 
   // Calcula a posição inicial baseada nas porcentagens definidas
   const calculateInitialPosition = () => {
@@ -336,7 +379,7 @@ const Index = () => {
 
         {/* Seções onde a luz fica na posição inicial */}
         <FeaturesBanner />
-          <MaizenaSection />
+        <MaizenaSection />
 
         <div className="w-full" ref={solutionsSectionRef}>
           <SolutionsSection />
