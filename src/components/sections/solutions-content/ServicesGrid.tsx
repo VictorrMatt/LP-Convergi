@@ -54,7 +54,7 @@ const servicesData = [
 
 export const ServicesGrid: React.FC = () => {
   return (
-    <section className="flex items-start w-full max-md:flex-wrap max-sm:flex-col">
+    <section className="flex items-start w-full max-md:flex-wrap">
       {servicesData.map((service, index) => (
         <ServiceCard
           key={index}

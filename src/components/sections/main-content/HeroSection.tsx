@@ -22,13 +22,13 @@ const serviceCircles = [
 
 export const HeroSection = () => {
   return (
-    <main className="w-[1312px] h-[1080px] pt-[360px] gap-[60px] pb-[60px] flex flex-col relative items-center justify-center">
-      <section className="max-w-[1007px] w-full flex flex-col items-center justify-center gap-10 ">
+    <main className="w-[1312px] h-[1080px] max-sm:h-[956px] pt-[360px] max-sm:pt-[318px] gap-[60px] pb-[60px] max-sm:pb-[250px] flex flex-col relative items-center justify-center">
+      <section className="max-w-[1007px] max-sm:px-[24px] w-full flex flex-col items-center justify-center gap-10 ">
         <header className="flex flex-col items-center gap-6 w-full ">
-          <h1 className="text-white text-center text-8xl font-semibold leading-[104px] max-md:text-7xl max-md:leading-[80px] max-sm:text-5xl max-sm:leading-[56px] ">
+          <h1 className="text-white text-center text-8xl font-semibold leading-[104px] max-sm:text-[64px] max-sm:leading-[72px] ">
             Innovation, Design,<br/> & Strategy
           </h1>
-          <p className="text-[#BFBFBF] font-inter text-center text-base font-normal leading-5 max-sm:text-sm ">
+          <p className="text-[#BFBFBF] font-inter text-center text-base font-normal leading-5">
             <span>Elevating Digital Experiences Beyond Expectations.</span>
             <br />
             <span>
@@ -45,7 +45,7 @@ export const HeroSection = () => {
         </button>
       </section>
        <ScrollIndicator className="" />
-       <div className="flex justify-center items-center gap-10 w-[800px] mx-auto my-0 bottom-0 max-md:w-full max-md:flex-wrap max-md:relative max-md:mt-10 max-sm:gap-5 ">
+       <div className="flex justify-center items-center gap-10 w-[800px] mx-auto my-0 bottom-0 max-md:w-full max-md:flex-wrap max-md:relative max-md:mt-10 max-sm:hidden">
         {serviceCircles.map((circle, index) => (
           <ServiceCircle
             key={index}

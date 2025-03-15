@@ -5,9 +5,10 @@ interface VerticalContainerProps {
   justify?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
   align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
   children: React.ReactNode;
+  className?: string;
 }
 
-export const VerticalContainer: React.FC<VerticalContainerProps> = ({ children, gap, justify, align }) => {
+export const VerticalContainer: React.FC<VerticalContainerProps> = ({ children, gap, justify, align, className }) => {
   const style: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
@@ -17,7 +18,7 @@ export const VerticalContainer: React.FC<VerticalContainerProps> = ({ children, 
   };
 
   return (
-    <div style={style}>
+    <div style={style} className={className}>
       {children}
     </div>
   );

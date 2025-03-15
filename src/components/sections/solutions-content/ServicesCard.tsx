@@ -22,7 +22,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <article
       className={`
-        flex h-[400px] flex-col justify-between items-start flex-1 relative
+        flex h-[400px] max-sm:w-[full] flex-col justify-between items-start flex-1 relative
         pt-12 pb-6 px-6
         ${borderPosition === "top" ? "border-t-[#727EC5] border-t" : "border-b-[#727EC5] border-b"} 
         border-solid

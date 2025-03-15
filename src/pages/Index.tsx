@@ -5,7 +5,6 @@ import type React from "react"
 import { SolutionsSection } from "@/components/sections/Solutions"
 import { Portfolio } from "@/components/sections/Portfolio"
 import Testimonials from "@/components/sections/Testimonials"
-import Footer from "@/components/sections/Footer"
 import PhoneSection from "@/components/sections/phone-content/PhoneSection"
 import { useEffect, useRef, useState } from "react"
 import { HeroSection } from "@/components/sections/main-content/HeroSection"
@@ -14,6 +13,7 @@ import FeaturesBanner from "@/components/banner"
 import MaizenaSection from "@/components/sections/maizena-content"
 import { SliderSection } from "@/components/sections/Slider"
 import LinesSection from "@/components/sections/Lines"
+import ContactSection from "@/components/sections/Contact"
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -346,7 +346,7 @@ const Index = () => {
         <LinesSection />
         <Portfolio />
         <Testimonials />
-        <Footer />
+        <ContactSection />
       </div>
     </main>
   )

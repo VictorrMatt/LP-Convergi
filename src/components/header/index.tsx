@@ -6,7 +6,7 @@ const Header = () => (
     <div className="flex w-[1440px] items-center justify-between">
         <Convergi />
         <div className="flex items-center justify-center gap-2">
-          <Button variant="outline">
+          <Button variant="outline" className="max-sm:hidden">
           hello@convergi.studio
           </Button>
 

@@ -1,22 +1,27 @@
-import React from "react";
+import * as React from "react";
 
-export const SocialLinks: React.FC = () => {
+export function SocialLinks() {
   return (
-    <nav className="flex gap-4 items-start mt-4 max-w-full text-xs font-semibold text-center whitespace-nowrap min-h-8 w-[264px]">
+    <nav
+      className="flex gap-4 items-start h-8 w-[264px] max-sm:justify-start max-sm:w-full"
+      aria-label="Social media links"
+    >
       <a
-        href="https://www.instagram.com/convergistudio/"
+        href="https://instagram.com"
         target="_blank"
-        className="gap-2 self-stretch px-4 bg-indigo-950 min-h-8 rounded-[100px] flex items-center justify-center hover:bg-indigo-900 transition-colors"
+        rel="noopener noreferrer"
+        className="gap-2 px-4 h-8 text-xs font-semibold leading-5 text-center text-white bg-[#0A1743] rounded-[100px] flex items-center hover:bg-indigo-900 transition-colors"
       >
         instagram
       </a>
       <a
-        href="https://www.linkedin.com/company/convergistudio/"
+        href="https://linkedin.com"
         target="_blank"
-        className="gap-2 self-stretch px-4 bg-indigo-950 min-h-8 rounded-[100px] flex items-center justify-center hover:bg-indigo-900 transition-colors"
+        rel="noopener noreferrer"
+        className="gap-2 px-4 h-8 text-xs font-semibold leading-5 text-center text-white bg-[#0A1743] rounded-[100px] flex items-center hover:bg-indigo-900 transition-colors"
       >
         linkedin
       </a>
     </nav>
   );
-};
+}

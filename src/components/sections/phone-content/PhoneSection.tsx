@@ -9,8 +9,8 @@ interface HeroSectionProps {
 
 const PhoneSection: React.FC<HeroSectionProps> = ({ className }) => {
   return (
-    <div className="p-16 w-full">
-      <main className="w-full h-[732px] justify-between flex overflow-hidden flex-wrap rounded-3xl bg-[#0E1543] ">
+    <div className="p-16 max-sm:p-0 w-full">
+      <main className="w-full h-[732px] max-sm:h-[1277px] max-sm:rounded-none justify-between flex overflow-hidden flex-wrap rounded-3xl bg-[#0E1543] ">
           <MainContent />
           <FeatureList />
       </main>
