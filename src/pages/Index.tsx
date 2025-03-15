@@ -14,16 +14,8 @@ import MaizenaSection from "@/components/sections/maizena-content"
 import { SliderSection } from "@/components/sections/Slider"
 import LinesSection from "@/components/sections/Lines"
 import ContactSection from "@/components/sections/Contact"
-import { useMobile } from "@/hooks/use-mobile"
 
 const Index = () => {
-  // Aumentamos o breakpoint para 1024px para garantir que tablets também sejam considerados móveis
-  const [isMobileState, setIsMobileState] = useState(false)
-  const isMobile = useMobile(1024)
-  useEffect(() => {
-    setIsMobileState(isMobile)
-  }, [isMobile])
-
   const containerRef = useRef<HTMLDivElement>(null)
   const heroSectionRef = useRef<HTMLDivElement>(null)
   const phoneSectionRef = useRef<HTMLDivElement>(null)
@@ -38,6 +30,7 @@ const Index = () => {
   const [transitionType, setTransitionType] = useState("none") // "none", "appear", "disappear", "follow"
   const [isFirstMove, setIsFirstMove] = useState(true) // Rastreia se é o primeiro movimento em uma seção ativa
   const [transitionComplete, setTransitionComplete] = useState(false)
+  const [isMobile, setIsMobile] = useState(false) // Estado para detectar dispositivos móveis
 
   // Configurações do efeito de luz
   const lightConfig = {
@@ -63,40 +56,23 @@ const Index = () => {
     followSpeed: 0, // Velocidade quando a luz segue o mouse (instantânea)
   }
 
-  // Se for dispositivo móvel, não executamos nenhuma lógica relacionada ao efeito de luz
-  if (isMobileState) {
-    // Renderiza a página sem o efeito de luz
-    return (
-      <main className="min-h-screen relative w-full overflow-hidden select-none bg-[#08102F]" ref={containerRef}>
-        <Header />
+  // Detecta se é um dispositivo móvel
+  useEffect(() => {
+    const checkMobile = () => {
+      // Verifica a largura da tela (dispositivos com menos de 1024px são considerados móveis)
+      const isMobileDevice = window.innerWidth < 1024
+      setIsMobile(isMobileDevice)
+    }
 
-        <div className="w-full max-w-[1440px] mx-auto flex flex-col items-center justify-center relative z-10">
-          <div className="w-full flex items-center justify-center" ref={heroSectionRef}>
-            <HeroSection />
-          </div>
+    // Verifica inicialmente
+    checkMobile()
 
-          <div className="w-full" ref={phoneSectionRef}>
-            <PhoneSection />
-          </div>
+    // Adiciona listener para redimensionamento
+    window.addEventListener("resize", checkMobile)
 
-          <FeaturesBanner />
-          <MaizenaSection />
-
-          <div className="w-full" ref={solutionsSectionRef}>
-            <SolutionsSection />
-          </div>
-
-          <SliderSection />
-          <LinesSection />
-          <Portfolio />
-          <Testimonials />
-          <ContactSection />
-        </div>
-      </main>
-    )
-  }
-
-  // A partir daqui, o código só será executado em dispositivos desktop
+    // Remove listener ao desmontar
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   // Calcula a posição inicial baseada nas porcentagens definidas
   const calculateInitialPosition = () => {
@@ -113,6 +89,9 @@ const Index = () => {
 
   // Verifica se uma coordenada está em uma das seções ativas
   const checkIfInActiveSection = (x: number, y: number) => {
+    // Se for dispositivo móvel, retorna false para desativar o efeito
+    if (isMobile) return false
+
     const heroRect = heroSectionRef.current?.getBoundingClientRect()
     const phoneRect = phoneSectionRef.current?.getBoundingClientRect()
     const solutionsRect = solutionsSectionRef.current?.getBoundingClientRect()
@@ -129,6 +108,9 @@ const Index = () => {
 
   // Atualiza a posição da luz com base na posição atual do mouse e na seção
   const updateLightPosition = () => {
+    // Se for dispositivo móvel, não faz nada
+    if (isMobile) return
+
     const inActiveSection = checkIfInActiveSection(lastMousePosition.x, lastMousePosition.y)
 
     // Se estamos entrando em uma seção ativa
@@ -163,6 +145,9 @@ const Index = () => {
 
   // Função para lidar com o fim da transição de aparecimento
   const handleTransitionEnd = (e: React.TransitionEvent) => {
+    // Se for dispositivo móvel, não faz nada
+    if (isMobile) return
+
     // Só nos importamos com as transições de top/left
     if (e.propertyName === "top" || e.propertyName === "left") {
       // Se estamos em uma seção ativa e acabamos de completar a primeira transição
@@ -194,15 +179,20 @@ const Index = () => {
       })
     }
 
-    // Mostra o gradiente após um delay
-    const timer = setTimeout(() => {
-      setIsVisible(true)
-    }, 750)
+    // Mostra o gradiente após um delay (apenas em desktop)
+    if (!isMobile) {
+      const timer = setTimeout(() => {
+        setIsVisible(true)
+      }, 750)
 
-    return () => clearTimeout(timer)
-  }, [])
+      return () => clearTimeout(timer)
+    }
+  }, [isMobile])
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Se for dispositivo móvel, não faz nada
+    if (isMobile) return
+
     // Armazena a última posição conhecida do mouse
     setLastMousePosition({ x: e.clientX, y: e.clientY })
 
@@ -239,10 +229,16 @@ const Index = () => {
   }
 
   const handleMouseEnter = () => {
+    // Se for dispositivo móvel, não faz nada
+    if (isMobile) return
+
     setIsHovering(true)
   }
 
   const handleMouseLeave = () => {
+    // Se for dispositivo móvel, não faz nada
+    if (isMobile) return
+
     setIsHovering(false)
     setTransitionType("disappear")
     setIsInActiveSection(false)
@@ -256,9 +252,12 @@ const Index = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Atualiza a posição da luz com base na última posição conhecida do mouse
-      updateLightPosition()
+      // (apenas em desktop)
+      if (!isMobile) {
+        updateLightPosition()
+      }
 
-      // Também atualiza o header
+      // Atualiza o header (em todos os dispositivos)
       const header = document.getElementById("header")
       if (header) {
         if (window.scrollY > 0) {
@@ -273,24 +272,27 @@ const Index = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [lastMousePosition, isInActiveSection, isFirstMove, transitionComplete]) // Dependências atualizadas
+  }, [lastMousePosition, isInActiveSection, isFirstMove, transitionComplete, isMobile]) // Dependências atualizadas
 
   // Recalcula a posição inicial se a janela for redimensionada
   useEffect(() => {
     const handleResize = () => {
-      if (!isHovering || !isInActiveSection) {
-        setPosition(calculateInitialPosition())
-      }
+      // Apenas em desktop
+      if (!isMobile) {
+        if (!isHovering || !isInActiveSection) {
+          setPosition(calculateInitialPosition())
+        }
 
-      // Também atualiza a posição da luz com base na última posição do mouse
-      updateLightPosition()
+        // Também atualiza a posição da luz com base na última posição do mouse
+        updateLightPosition()
+      }
     }
 
     window.addEventListener("resize", handleResize)
     return () => {
       window.removeEventListener("resize", handleResize)
     }
-  }, [isHovering, isInActiveSection, lastMousePosition, isFirstMove, transitionComplete])
+  }, [isHovering, isInActiveSection, lastMousePosition, isFirstMove, transitionComplete, isMobile])
 
   // Determina a velocidade de transição com base no tipo de transição
   const getTransitionSpeed = () => {
@@ -332,38 +334,40 @@ const Index = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Efeito de luz que segue o mouse */}
-      <div
-        className="fixed pointer-events-none"
-        style={{
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 0,
-          opacity: isVisible ? 1 : 0,
-          transition: "opacity 750ms ease-out",
-        }}
-      >
+      {/* Efeito de luz que segue o mouse - renderizado apenas em desktop */}
+      {!isMobile && (
         <div
-          ref={lightRef}
-          className="absolute"
+          className="fixed pointer-events-none"
           style={{
-            top: isHovering && isInActiveSection ? position.y : initialPosition.y,
-            left: isHovering && isInActiveSection ? position.x : initialPosition.x,
-            width: `${lightConfig.size}px`,
-            height: `${lightConfig.size}px`,
-            transform: "translate(-50%, -50%)",
-            transition: shouldUseTransition
-              ? `top ${getTransitionSpeed()}ms ${getTransitionEasing()}, left ${getTransitionSpeed()}ms ${getTransitionEasing()}`
-              : "none", // Sem transição quando estiver seguindo o mouse
-            background: `radial-gradient(circle at center, ${lightConfig.color} 0%, rgba(8, 16, 47, 0) 70%, rgba(8, 16, 47, 0) 100%)`,
-            filter: `blur(${lightConfig.blur}px)`,
-            willChange: "top, left",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 0,
+            opacity: isVisible ? 1 : 0,
+            transition: "opacity 750ms ease-out",
           }}
-          onTransitionEnd={handleTransitionEnd}
-        />
-      </div>
+        >
+          <div
+            ref={lightRef}
+            className="absolute"
+            style={{
+              top: isHovering && isInActiveSection ? position.y : initialPosition.y,
+              left: isHovering && isInActiveSection ? position.x : initialPosition.x,
+              width: `${lightConfig.size}px`,
+              height: `${lightConfig.size}px`,
+              transform: "translate(-50%, -50%)",
+              transition: shouldUseTransition
+                ? `top ${getTransitionSpeed()}ms ${getTransitionEasing()}, left ${getTransitionSpeed()}ms ${getTransitionEasing()}`
+                : "none", // Sem transição quando estiver seguindo o mouse
+              background: `radial-gradient(circle at center, ${lightConfig.color} 0%, rgba(8, 16, 47, 0) 70%, rgba(8, 16, 47, 0) 100%)`,
+              filter: `blur(${lightConfig.blur}px)`,
+              willChange: "top, left",
+            }}
+            onTransitionEnd={handleTransitionEnd}
+          />
+        </div>
+      )}
 
       <Header />
 
