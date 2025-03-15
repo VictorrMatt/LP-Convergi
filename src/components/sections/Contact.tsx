@@ -1,10 +1,10 @@
 "use client";
 import { ContactInfo } from "./footer-content/ContactInfo";
 import { SocialLinks } from "./footer-content/SocialLinks";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useMobile } from "@/hooks/use-mobile";
 
 export default function ContactSection() {
-  const isMobile = useIsMobile();
+  const isMobile = useMobile();
 
   return (
     <div className="w-screen flex justify-center bg-[#07102F]">
